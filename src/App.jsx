@@ -7,6 +7,7 @@ import HospitalDetailsPage from './components/HospitalDetailsPage.jsx';
 import LoginPage from './components/LoginPage.jsx';
 import EligibilityPage from './components/EligibilityPage.jsx';
 import AboutPage from './components/AboutPage.jsx';
+import BloodBanksListPage from './components/BloodBanksListPage.jsx';
 import img1 from './assets/img1.jpg';
 import img2 from './assets/img2.jpg';
 import img3 from './assets/img3.jpg';
@@ -102,6 +103,15 @@ const router = createBrowserRouter([
       <>
         <Navbar />
         <AboutPage hospitals={hospitals} />
+      </>
+    ),
+  },
+  {
+    path: "/blood-banks",
+    element: (
+      <>
+        <Navbar />
+        <BloodBanksListPage />
       </>
     ),
   },
