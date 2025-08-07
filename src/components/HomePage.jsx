@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from './Navbar';
 import Homebg from '../assets/Homebg.jpg'
 import home from '../assets/home.jpg'
+import { Heart, Users, Shield, ArrowRight, MapPin, Info } from 'lucide-react';
 
 function HomePage({ setCurrentPage }) {
   return (
@@ -12,7 +13,7 @@ function HomePage({ setCurrentPage }) {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-20"
           style={{
-         backgroundImage: `url(${Homebg})`
+            backgroundImage: `url(${Homebg})`
           }}
         ></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
@@ -28,14 +29,16 @@ function HomePage({ setCurrentPage }) {
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
                 <button
                   onClick={() => setCurrentPage('donation-centers')}
-                  className="bg-red-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-red-700 transition-colors cursor-pointer !rounded-button whitespace-nowrap"
+                  className="bg-red-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-red-700 transition-colors cursor-pointer flex items-center"
                 >
+                  <MapPin className="h-5 w-5 mr-2" />
                   Find a Donation Center Near Me
                 </button>
                 <button
                   onClick={() => setCurrentPage('about')}
-                  className="border border-gray-300 text-gray-700 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-50 transition-colors cursor-pointer !rounded-button whitespace-nowrap"
+                  className="border border-gray-300 text-gray-700 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-50 transition-colors cursor-pointer flex items-center"
                 >
+                  <Info className="h-5 w-5 mr-2" />
                   Learn More
                 </button>
               </div>
@@ -75,27 +78,27 @@ function HomePage({ setCurrentPage }) {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-sm text-center">
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-center">
               <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <i className="fas fa-heart text-red-600 text-2xl"></i>
+                <Heart className="h-8 w-8 text-red-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Save Lives</h3>
               <p className="text-gray-600">
                 One donation can save up to three lives and help patients with various medical conditions
               </p>
             </div>
-            <div className="bg-white p-8 rounded-xl shadow-sm text-center">
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-center">
               <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <i className="fas fa-users text-red-600 text-2xl"></i>
+                <Users className="h-8 w-8 text-red-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Community Impact</h3>
               <p className="text-gray-600">
                 Join a community of heroes making a difference in their local hospitals and communities
               </p>
             </div>
-            <div className="bg-white p-8 rounded-xl shadow-sm text-center">
+            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-center">
               <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <i className="fas fa-shield-alt text-red-600 text-2xl"></i>
+                <Shield className="h-8 w-8 text-red-600" />
               </div>
               <h3 className="text-xl font-semibold text-gray-900 mb-4">Safe Process</h3>
               <p className="text-gray-600">

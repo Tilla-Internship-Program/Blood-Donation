@@ -1,20 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import About from '../assets/About.jpg'
+import { Star, Building2, Heart, Users, Droplets, MapPin, ArrowRight } from 'lucide-react';
 
 function renderStars(rating) {
   const stars = [];
   const fullStars = Math.floor(rating);
   const hasHalfStar = rating % 1 !== 0;
+  
   for (let i = 0; i < fullStars; i++) {
-    stars.push(<i key={i} className="fas fa-star text-yellow-400"></i>);
+    stars.push(<Star key={i} className="h-4 w-4 text-yellow-400 fill-current" />);
   }
   if (hasHalfStar) {
-    stars.push(<i key="half" className="fas fa-star-half-alt text-yellow-400"></i>);
+    stars.push(<Star key="half" className="h-4 w-4 text-yellow-400 fill-current" />);
   }
   const emptyStars = 5 - Math.ceil(rating);
   for (let i = 0; i < emptyStars; i++) {
-    stars.push(<i key={`empty-${i}`} className="far fa-star text-gray-300"></i>);
+    stars.push(<Star key={`empty-${i}`} className="h-4 w-4 text-gray-300" />);
   }
   return stars;
 }
@@ -74,19 +76,31 @@ function AboutPage({ hospitals }) {
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-red-600 mb-2">10,000+</div>
+              <div className="text-4xl font-bold text-red-600 mb-2 flex items-center justify-center">
+                <Heart className="h-8 w-8 mr-2" />
+                10,000+
+              </div>
               <div className="text-gray-600">Lives Saved</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-red-600 mb-2">3,500+</div>
+              <div className="text-4xl font-bold text-red-600 mb-2 flex items-center justify-center">
+                <Droplets className="h-8 w-8 mr-2" />
+                3,500+
+              </div>
               <div className="text-gray-600">Blood Units Collected</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-red-600 mb-2">500+</div>
+              <div className="text-4xl font-bold text-red-600 mb-2 flex items-center justify-center">
+                <Users className="h-8 w-8 mr-2" />
+                500+
+              </div>
               <div className="text-gray-600">Active Donors</div>
             </div>
             <div className="text-center">
-              <div className="text-4xl font-bold text-red-600 mb-2">50+</div>
+              <div className="text-4xl font-bold text-red-600 mb-2 flex items-center justify-center">
+                <Building2 className="h-8 w-8 mr-2" />
+                50+
+              </div>
               <div className="text-gray-600">Partner Hospitals</div>
             </div>
           </div>
@@ -101,12 +115,15 @@ function AboutPage({ hospitals }) {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {hospitals.map((hospital) => (
-              <div key={hospital.id} className="bg-white p-6 rounded-xl shadow-sm text-center hover:shadow-md transition-shadow">
+              <div key={hospital.id} className="bg-white p-6 rounded-xl shadow-lg text-center hover:shadow-xl transition-shadow">
                 <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <i className="fas fa-hospital text-red-600 text-2xl"></i>
+                  <Building2 className="h-10 w-10 text-red-600" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">{hospital.name}</h3>
-                <p className="text-gray-600 mb-4">{hospital.location}</p>
+                <p className="text-gray-600 mb-4 flex items-center justify-center">
+                  <MapPin className="h-4 w-4 mr-1" />
+                  {hospital.location}
+                </p>
                 <div className="flex items-center justify-center">
                   <div className="flex mr-2">
                     {renderStars(hospital.rating)}
@@ -127,9 +144,11 @@ function AboutPage({ hospitals }) {
           </p>
           <Link
             to="/donation-centers"
-            className="bg-white text-red-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors cursor-pointer !rounded-button whitespace-nowrap"
+            className="bg-white text-red-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors cursor-pointer flex items-center mx-auto w-fit"
           >
+            <MapPin className="h-5 w-5 mr-2" />
             Find a Donation Center
+            <ArrowRight className="h-5 w-5 ml-2" />
           </Link>
         </div>
       </div>
